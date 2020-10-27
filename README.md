@@ -5,7 +5,7 @@
 This is my application to the TechStartPro program @ [Olist](https://olist.com/)!
 <br>
 
-You cand find a deployed version and the full API Docs, hosted at Heroku: http://olist.matheusabreu.dev.br/
+You can find a deployed version and the full API Docs, hosted at Heroku: http://olist.matheusabreu.dev.br/
 
 The original instructions can be found [here](INSTRUCTIONS.md).
 
