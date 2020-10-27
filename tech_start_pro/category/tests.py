@@ -1,5 +1,6 @@
 from django.apps import apps
 from django.test import TestCase
+from rest_framework import status
 from rest_framework.test import APITestCase
 
 from .apps import CategoryConfig
