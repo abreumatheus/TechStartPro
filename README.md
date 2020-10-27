@@ -1,99 +1,124 @@
+# TechStartPro - Matheus Abreu
 
-# Trabalho no olist
-Olist é uma empresa que oferece uma plataforma de integração para vendedores e marketplaces, permitindo-lhes vender seus produtos em vários canais.
+## Hello, i'm Matheus Abreu! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 
-A equipe de desenvolvimento Olist consiste em desenvolvedores que amam o que fazem. Nossos processos de desenvolvimento ágil e nossa busca pelas melhores práticas de desenvolvimento proporcionam um ótimo ambiente para profissionais que gostam de criar softwares de qualidade em boa companhia.
+This is my application to the TechStartPro program @ [Olist](https://olist.com/)!
+<br>
 
-Estamos sempre à procura de bons programadores que adorem melhorar seu trabalho. 
+You cand find a deployed version and the full API Docs, hosted at Heroku: http://olist.matheusabreu.dev.br/
 
-Este repositório contém um problema usado para avaliar as habilidades do candidato. É importante notar que resolver satisfatoriamente o problema é apenas uma parte do que será avaliado. Também consideramos outras disciplinas de programação como documentação, teste, cronograma de commit, design e melhores práticas de codificação.
+The original instructions can be found [here](INSTRUCTIONS.md).
 
+## Contents
 
-# Dicas:
+- [Contents](#contents)
+- [Setup](#Setup)
+- [Running](#running-the-application)
+- [Importing Categories](#importing-categories)
+- [API Documentation](#api-documentation)
+- [Testing](#testing)
+- [Work Environment](#work-environment)
 
-* Leia atentamente a especificação para entender todos os requisitos do problema e do artefato antes de começar, se você não entender algo, diga-nos;
-* Verifique as recomendações e o material de referência no final desta especificação;
-* Apreciamos a simplicidade, portanto, crie uma boa configuração de projeto que nos ajudará na sua avaliação;
-* Por favor, faça testes ... nós apreciamos testes <3 ... testes tornam o mundo melhor.
+## Setup
 
-# Como participar
-* Faça um fork deste repositório no Github. Se você não pode criar um fork público deste projeto, faça um repositório privado e adicione permissão de leitura para o usuário abaixo:
-  + mgranemann
-* Siga as instruções do README.md (este arquivo);
-* Candidate-se ao cargo na nossa página de carreiras com o link para o fork no Github.
-  + caso ja tenha realizado a candidatura na pagina de carreiras sem o envio do desafio, responda ao e-mail que lhe foi enviado pela equipe do seleção com o link do seu repositório.
+After you clone this project, you can open the folder `tech_start_pro` in your favourite IDE or code editor.
 
+### Virtual Environment
 
+To setup the virutal environment (here i'm using pipenv) you must run the following commands on your preffered terminal:
 
-# Especificação
-Você deve implementar um aplicativo para armazenar dados de produtos e categorias.
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
-1. Receba um CSV com as categorias e importe para o banco de dados
+Install Pipenv:
 
-  Dado um arquivo CSV com muitas categorias, você precisa construir um comando para importar os dados para o banco de dados. O arquivo CSV terá o seguinte formato:
+```
+pip install pipenv
+```
 
-> nome
-> * Móveis
-> * Decoração
-> * Celular 
-> * Informática
-> * Brinquedos
+Install Dependencies:
 
-Cada registro de categoria no banco de dados deve ter os seguintes campos:
-* id (autogerado)
-* nome
+```
+pipenv install
+```
 
-Você precisa armazenar os dados das categorias para complementar os dados do produto que serão armazenados posteriormente (consulte o item # 2).
+### Env File
 
+Now, you need to create a file named `.env` inside the project folder. You can find an example of how your file should look like bellow or in the file `sample.env`.
 
-2. CRUD (criar, ler, atualizar e excluir) de produtos:
+```
+SECRET_KEY=SOME-SECRET-KEY # Must be a random generated string
+```
 
-Você precisa implementar estas ações:
-* Criar um produto
-* Ler os dados do produto
-* Atualizar os dados do produto
-* Excluir os dados do produto
+### Populating Our Database
 
-Cada registro de produto possui os campos:
-* id (autogerado)
-* nome
-* descrição
-* valor
-* categorias (um produto pode estar em mais de uma categoria)
+Next you will run the migrations, django will create a SQLite file and populate it with our tables. It sounds complicated, but we only need one command 😀.
 
-Para recuperar um produto, podemos filtrar por 4 campos (ou uma composição desses quatro):
-* nome
-* descrição
-* valor
-* categorias
-Deve ser possível navegar pelos dados de todos os produtos sem nenhum filtro.
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
-Para criar um produto, será necessário informar os dados abaixo:
-* "nome": // Nome do produto;
-* “descrição”: // Descrição do produto
-* “valor”:// Valor do produto
-* “categorias”:// Lista de ids de categorias
+```
+python manage.py migrate
+```
 
+## Running The Application
 
-# Requisitos do projeto:
-1. Pode ser feita em qualquer linguagem de programação que suporte o paradigma de orientação a objetos
-2. Utilizar padrões de projeto
-3. Boas práticas de desenvolvimento de software
-4. Utilizar paradigma de orientação a objetos
-5. Utilizar GitHub
-6. Camada visual pode ser console, desktop ou web
-7. Variáveis, código e strings devem estar todos em inglês.
-8. Escreva a documentação do projeto contendo:
+Use the following command:
 
->  * Descrição;
->  * Instruções de instalação (configuração) e teste;
->  * Breve descrição do ambiente de trabalho utilizado para executar este projeto (Computador / sistema operacional, editor de texto / IDE, bibliotecas, etc).
->  * Variáveis, código e strings devem estar todos em inglês.
-  
-# Recomendações
-  * Escreva testes! Por favor, faça testes ... nós apreciamos testes <3 ... testes tornam o mundo melhor;
-  * Use boas práticas de programação;
-  * Use as melhores práticas do git, com mensagens claras;
-  * Esteja ciente ao modelar o banco de dados;
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
-# Divirta-se!
+```
+python manage.py runserver
+```
+
+... and that's it!
+
+## Importing Categories
+
+You can import categories from a csv file. The csv file has to follow the structure shown bellow.
+
+```
+name
+Toys
+Cellphones
+Computers
+```
+
+To import a csv file, you'll have to use the following command:
+
+```
+python manage.py import_categories <path_to_csv_file>
+```
+
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
+
+The proccess may take a while, depending on the size of the file you're importing. At the end, it will output `Finished!` in the terminal, to let you know everything went right. If there's any duplicate categories, you'll see a warning telling you which category is duplicated, but it will not interrupt the process or write duplicates to the database.
+
+## API Documentation
+
+You can access the API documentation by visiting `http://127.0.0.1:8000/`, if you didn't change the default port, or the deployed version at Heroku [here](http://olist.matheusabreu.dev.br/).
+
+## Testing
+
+### Running Tests
+
+Run all tests with coverage:
+
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
+
+```
+coverage run --source='.' manage.py test
+```
+
+Generate coverage report:
+
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
+
+```
+coverage report
+```
+
+## Work Environment
+
+**OS**: Linux Mint<br>
+**IDE**: Pycharm Professinal 2020.2<br>
+**Computer**: Dell Latitude 3400<br>
+**Libaries**: Django, Django Rest Framework, Django-Filter, Python-Decouple, Def-Yasg and Coverage
