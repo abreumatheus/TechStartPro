@@ -1,4 +1,7 @@
+from unittest.mock import patch, call
+
 from django.apps import apps
+from django.core.management import call_command
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -97,3 +100,38 @@ class TestCategoryEndpoints(APITestCase):
         self.assertEqual(delete_response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(data['count'], 2)
         self.assertTrue(all(category['id'] != self.sample_category.id for category in data['results']))
+
+
+class TestImportCommand(TestCase):
+    @patch('builtins.print', return_value='Finished!')
+    def test_command_should_output_finished(self, mock_print):
+        call_command('import_categories', 'category/test_dummy_data/import-test.csv')
+        mock_print.assert_called_with('Finished!')
+
+    def test_command_with_invalid_filetype_should_raise_exception(self):
+        with self.assertRaises(Exception) as context:
+            call_command('import_categories', 'category/test_dummy_data/__init__.py')
+
+        self.assertEqual(context.exception.__str__(), 'Unexpected file format. Try it with a valid csv file.')
+
+    @patch('builtins.print', return_value='Finished!')
+    def test_command_should_save_categories_to_database(self, _):
+        call_command('import_categories', 'category/test_dummy_data/import-test.csv')
+
+        saved_categories = []
+
+        for category in Category.objects.all():
+            saved_categories.append(str(category))
+
+        self.assertEqual(3, len(saved_categories))
+        self.assertIn('Toys', saved_categories)
+        self.assertIn('Notebooks', saved_categories)
+        self.assertIn('Cellphones', saved_categories)
+
+    @patch('builtins.print',
+           side_effect=['The category "Toys" is likely already in the database. Skipping.', 'Finished!'])
+    def test_command_should_warn_category_already_on_database(self, mock_print):
+        call_command('import_categories', 'category/test_dummy_data/import-duplicate-test.csv')
+
+        expected = [call('The category "Toys" is likely already in the database. Skipping.'), call('Finished!')]
+        self.assertEqual(expected, mock_print.mock_calls)
