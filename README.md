@@ -29,17 +29,17 @@ If you prefer, there's a docker ready option that will build and run the applica
 
 You must have Docker and Docker Compose installed for this option two work.
 
-Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `docker-compose.yaml` file.
 
 ```
 docker-compose up -d
 ```
 
-Now you can access the application and full API documentation at `http://localhost:8000/`
+You can now access the application and full API documentation at `http://localhost:8000/`.
 
 ### Virtual Environment
 
-To setup the virutal environment (here i'm using pipenv) you must run the following commands on your preffered terminal:
+To setup the virtual environment (i'm using pipenv here) you must run the following commands on your preffered terminal:
 
 Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
@@ -85,6 +85,8 @@ python manage.py runserver
 
 ... and that's it!
 
+You can now access the application and full API documentation at `http://localhost:8000/`.
+
 ## Importing Categories
 
 You can import categories from a csv file. The csv file has to follow the structure shown bellow.
@@ -104,7 +106,7 @@ python manage.py import_categories <path_to_csv_file>
 
 Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
-The proccess may take a while, depending on the size of the file you're importing. At the end, it will output `Finished!` in the terminal, to let you know everything went right. If there's any duplicate categories, you'll see a warning telling you which category is duplicated, but it will not interrupt the process or write duplicates to the database.
+The proccess may take a while, depending on the size of the file you're importing. At the end, it will output `Finished!` in the terminal, to let you know everything went right. If there's any duplicate categories, you'll see a warning telling you which category is duplicated, but it will not interrupt the process nor write duplicates to the database.
 
 ## API Documentation
 
@@ -123,8 +125,6 @@ coverage run --source='.' manage.py test
 ```
 
 Generate coverage report:
-
-Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
 ```
 coverage report
