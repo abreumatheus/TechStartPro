@@ -5,7 +5,7 @@
 This is my application to the TechStartPro program @ [Olist](https://olist.com/)!
 <br>
 
-You can find a deployed version and the full API Docs, hosted at Heroku: http://olist.matheusabreu.dev.br/
+You can find a deployed version and the full API Docs, hosted at Heroku: http://olist.matheusabreu.com.br/
 
 The original instructions can be found [here](INSTRUCTIONS.md).
 
@@ -110,7 +110,7 @@ The proccess may take a while, depending on the size of the file you're importin
 
 ## API Documentation
 
-You can access the API documentation by visiting `http://127.0.0.1:8000/`, if you didn't change the default port, or accessing the deployed version at Heroku [here](http://olist.matheusabreu.dev.br/).
+You can access the API documentation by visiting `http://127.0.0.1:8000/`, if you didn't change the default port, or accessing the deployed version at Heroku [here](http://olist.matheusabreu.com.br/).
 
 ## Testing
 
