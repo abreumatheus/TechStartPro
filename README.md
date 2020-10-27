@@ -23,6 +23,20 @@ The original instructions can be found [here](INSTRUCTIONS.md).
 
 After you clone this project, you can open the folder `tech_start_pro` in your favourite IDE or code editor.
 
+### Docker
+
+If you prefer, there's a docker ready option that will build and run the application with one single command.
+
+You must have Docker and Docker Compose installed for this option two work.
+
+Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
+
+```
+docker-compose up -d
+```
+
+Now you can access the application and full API documentation at `http://localhost:8000/`
+
 ### Virtual Environment
 
 To setup the virutal environment (here i'm using pipenv) you must run the following commands on your preffered terminal:
@@ -94,7 +108,7 @@ The proccess may take a while, depending on the size of the file you're importin
 
 ## API Documentation
 
-You can access the API documentation by visiting `http://127.0.0.1:8000/`, if you didn't change the default port, or the deployed version at Heroku [here](http://olist.matheusabreu.dev.br/).
+You can access the API documentation by visiting `http://127.0.0.1:8000/`, if you didn't change the default port, or accessing the deployed version at Heroku [here](http://olist.matheusabreu.dev.br/).
 
 ## Testing
 
