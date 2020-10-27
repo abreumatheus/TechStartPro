@@ -17,7 +17,7 @@ class ProductFilter(filters.FilterSet):
 
 
 class ProductViewSet(ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.order_by('name')
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
 
