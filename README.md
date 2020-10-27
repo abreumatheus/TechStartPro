@@ -135,4 +135,4 @@ coverage report
 **OS**: Linux Mint<br>
 **IDE**: Pycharm Professinal 2020.2<br>
 **Computer**: Dell Latitude 3400<br>
-**Libaries**: Django, Django Rest Framework, Django-Filter, Python-Decouple, Def-Yasg and Coverage
+**Libaries**: Django, Django Rest Framework, Django-Filter, Python-Decouple, Def-Yasg and Coverage. The Heroku deployed version uses all the already mentioned libraries plus: Django-Heroku, Psycopg2 (Postgres) and Gunicorn.
