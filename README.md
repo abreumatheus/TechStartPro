@@ -60,7 +60,8 @@ pipenv install
 Now, you need to create a file named `.env` inside the project folder. You can find an example of how your file should look like bellow or in the file `sample.env`.
 
 ```
-SECRET_KEY=SOME-SECRET-KEY # Must be a random generated string
+SECRET_KEY=SOME-SECRET-KEY # Must be a random generated string.
+APP_DOCS_URL=http://127.0.0.1:8000/ $ The URL to your docs page, normally the root URL of the api.
 ```
 
 ### Populating Our Database
@@ -114,9 +115,17 @@ You can access the API documentation by visiting `http://127.0.0.1:8000/`, if yo
 
 ## Testing
 
-### Running Tests
+### Install ChromeDriver
+In order to run functional tests with selenium, you'll need to download and install the chrome driver recommended for your Google Chrome version.
 
-Run all tests with coverage:
+You can find how to download it visiting the official page [here](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+
+Afterwards, you shoul put the downloaded file in your system PATH env variable.
+
+### Running Tests
+Before running any tests, make sure the application is running, otherwise the docs tests made with selenium will fail.
+
+#### Run all tests with coverage:
 
 Obs: Make sure you're in the right folder. The main project folder (`tech_start_pro`), which contains the `manage.py` file.
 
@@ -124,7 +133,7 @@ Obs: Make sure you're in the right folder. The main project folder (`tech_start_
 coverage run --source='.' manage.py test
 ```
 
-Generate coverage report:
+#### Generate coverage report:
 
 ```
 coverage report
@@ -135,4 +144,4 @@ coverage report
 **OS**: Linux Mint<br>
 **IDE**: Pycharm Professinal 2020.2<br>
 **Computer**: Dell Latitude 3400<br>
-**Libaries**: Django, Django Rest Framework, Django-Filter, Python-Decouple, Def-Yasg and Coverage. The Heroku deployed version uses all the already mentioned libraries plus: Django-Heroku, Psycopg2 (Postgres) and Gunicorn.
+**Libaries**: Django, Django Rest Framework, Django-Filter, Python-Decouple, Def-Yasg, Coverage and Selenium. The Heroku deployed version uses all the already mentioned libraries plus: Django-Heroku, Psycopg2 (Postgres) and Gunicorn.
