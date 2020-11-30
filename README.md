@@ -2,7 +2,7 @@
 
 ## Hello, i'm Matheus Abreu! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 
-This is my application to the TechStartPro program @ [Olist](https://olist.com/)!
+This is my application to the TechStartPro program @ [Olist](https://olist.com/) that got me hired! :grin:
 <br>
 
 You can find a deployed version and the full API Docs, hosted at Heroku: http://olist.matheusabreu.com.br/
